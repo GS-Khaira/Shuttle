@@ -1,0 +1,73 @@
+.home-dashboard {
+    margin-top: 30px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .search-card {
+    padding: 2rem;
+    border-radius: 12px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .search-card h2 {
+    margin: 0;
+    text-align: center;
+  }
+  
+  .search-card input {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .continue-btn {
+    padding: 0.7rem;
+    width: 70%;
+    margin-bottom: 20px ;
+    background-color: rgb(80, 184, 219);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: rgb(23, 160, 206);
+    }
+  }
+  
+  .actions {
+    margin: -30px 15px 0px 15px;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .action-card {
+    background-color: white;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+
+    &:hover{
+        background-color: rgb(152, 194, 85);
+        color: white;
+    }
+  }
+  
