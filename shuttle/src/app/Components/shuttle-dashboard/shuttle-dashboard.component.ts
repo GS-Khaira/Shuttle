@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
-import { HomeComponent } from "../home/home.component";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-shuttle-dashboard',
-  imports: [NavBarComponent, HomeComponent],
+  imports: [NavBarComponent, RouterOutlet],
   templateUrl: './shuttle-dashboard.component.html',
   styleUrl: './shuttle-dashboard.component.scss'
 })
