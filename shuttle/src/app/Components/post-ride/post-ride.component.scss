@@ -1,0 +1,65 @@
+div{
+    margin-bottom: 8px;
+}
+
+.post-ride-form {
+    margin-top: 10px;
+    width: 365px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-ride-form h2 {
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .date-input{
+    width: 162px;
+  }
+
+  .time-input{
+    width: 162px;
+  }
+  
+  .post-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(80, 184, 219);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: rgb(23, 160, 206);
+    }
+  }
