@@ -1,11 +1,31 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
+export enum ShuttleActions {
+  FIND = 'Find a Ride',
+  OFFER = 'Offer to Ride',
+  SEND_LUGGAGE = 'Send Luggage',
+}
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
 
+export class HomeComponent {
+  shuttleOptions = Object.values(ShuttleActions);
+  selectedShuttleOption: string = '';
+
+  constructor(private router: Router) {}
+
+  onSelectedShuttleFunctionality(functionlity: string){
+    this.selectedShuttleOption = functionlity;
+  }
+
+  onContinue(){
+    this.router.navigate(['/post-ride']);
+  }
 }

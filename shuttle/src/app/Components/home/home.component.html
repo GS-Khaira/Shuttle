@@ -5,11 +5,19 @@
       <input type="date" />
     </div>
     <div class="actions">
-        <div class="action-card">Find a Ride</div>
-        <div class="action-card">Offer to Ride</div>
-        <div class="action-card">Send Luggage</div>
+      @for(option of shuttleOptions; track $index){
+        <div
+          class="action-card"
+          [ngClass]="{
+            'action-card-selected': selectedShuttleOption === option
+          }"
+          (click)="onSelectedShuttleFunctionality(option)"
+        >
+          {{ option }}
+        </div>
+      }
     </div>
 
-    <button class="continue-btn">continue</button>
+    <button class="continue-btn" (click)="onContinue()">continue</button>
   </div>
   
