@@ -26,6 +26,10 @@ export class HomeComponent {
   }
 
   onContinue(){
-    this.router.navigate(['/post-ride']);
+    if(this.selectedShuttleOption == ShuttleActions.OFFER){
+      this.router.navigate(['/post-ride']);
+    }else if(this.selectedShuttleOption == ShuttleActions.FIND || this.selectedShuttleOption == ShuttleActions.SEND_LUGGAGE){
+      this.router.navigate(['/find-shuttle']);
+    }
   }
 }
