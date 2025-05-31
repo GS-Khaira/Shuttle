@@ -1,1 +1,77 @@
-<p>find-shuttle works!</p>
+<div class="p-6 bg-white min-h-screen font-sans find-shuttle">
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-bold text-[#50B8DB]">Ride Search</h1>
+    <div class="flex gap-4 text-[#50B8DB] font-medium text-sm">
+      <button class="hover:underline">Sort</button>
+      <button class="hover:underline">Filters</button>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <input
+      type="text"
+      placeholder="Search by location, driver, or date"
+      class="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm"
+    />
+  </div>
+
+  <div class="flex items-center justify-between mb-4 text-sm text-gray-700">
+    <label class="inline-flex items-center">
+      <input type="checkbox" class="mr-2 accent-[#50B8DB]">
+      <span>Show only available rides</span>
+    </label>
+    <label class="inline-flex items-center">
+      <input type="checkbox" class="mr-2 accent-[#98C255]">
+      <span>Include luggage transport</span>
+    </label>
+  </div>
+
+  <div class="ride-card">
+    <div class="info">
+      <div class="avatar">A</div>
+      <div class="details">
+        <h2>Alex Johnson</h2>
+        <p>Charlottetown → Summerside</p>
+        <p>Departure: July 1st, 9:00 AM</p>
+        <p>Seats Available: 2</p>
+      </div>
+    </div>
+    <div class="actions">
+      <p>Cost: $15</p>
+      <button class="primary-button">Book Ride</button>
+    </div>
+  </div>
+
+  <div class="ride-card">
+    <div class="info">
+      <div class="avatar">M</div>
+      <div class="details">
+        <h2>Maria Lopez</h2>
+        <p>Charlottetown → Montague</p>
+        <p>Departure: July 2nd, 2:00 PM</p>
+        <p>Seats Available: 3</p>
+        <p>Luggage Allowed</p>
+      </div>
+    </div>
+    <div class="actions">
+      <p>Cost: $12</p>
+      <button class="primary-button">Book Ride</button>
+    </div>
+  </div>
+
+  <div class="ride-card">
+    <div class="info">
+      <div class="avatar">S</div>
+      <div class="details">
+        <h2>Sophie Chen</h2>
+        <p>Charlottetown → Alberton</p>
+        <p>Departure: July 3rd, 10:30 AM</p>
+        <p>Seats Available: 1</p>
+      </div>
+    </div>
+    <div class="actions">
+      <p>Cost: $20</p>
+      <button class="primary-button">Book Ride</button>
+    </div>
+  </div>
+</div>
