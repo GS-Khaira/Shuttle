@@ -1,0 +1,121 @@
+.find-shuttle{
+    margin-top: 10px;
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+h1 {
+  font-size: 28px;
+  color: rgb(80, 184, 219);
+  margin-bottom: 10px;
+}
+
+button {
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+}
+
+.primary-button {
+  background-color: rgb(80, 184, 219);
+  color: white;
+}
+
+.primary-button:hover {
+  background-color: rgb(70, 165, 200);
+}
+
+.accent-button {
+  background-color: rgb(152, 194, 85);
+  color: white;
+}
+
+.accent-button:hover {
+  background-color: rgb(132, 175, 65);
+}
+
+input[type="text"] {
+  width: 93%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+label {
+  font-size: 14px;
+  color: #444;
+  margin-right: 20px;
+}
+
+input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+.ride-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  padding: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ride-card .info {
+  display: flex;
+  align-items: center;
+}
+
+.ride-card .avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgb(80, 184, 219);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-right: 16px;
+  font-size: 18px;
+}
+
+.ride-card .details h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  color: #333;
+}
+
+.ride-card .details p {
+  margin: 2px 0;
+  font-size: 13px;
+  color: #555;
+}
+
+.ride-card .actions {
+  text-align: right;
+}
+
+.ride-card .actions p {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: rgb(152, 194, 85);
+  font-weight: 500;
+}
