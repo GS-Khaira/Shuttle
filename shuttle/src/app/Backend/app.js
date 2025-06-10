@@ -4,6 +4,10 @@ const app = express();
 const port = 3000;
 const sequelize = require('./util/database');
 const User = require('./models/user');
+const Ride = require('./models/rides');
+
+User.hasMany(Ride, { foreignKey: 'driver_id' });
+Ride.belongsTo(User, { foreignKey: 'driver_id' });
 
 app.use(cors());
 app.use(express.json());
@@ -11,7 +15,7 @@ app.use(express.json());
 sequelize.authenticate()
     .then(() => {
         console.log('Database connection established successfully.');
-        return sequelize.sync();
+        return sequelize.sync({ alter: true });
     })
     .then(() => {
         console.log('Database synced successfully');
