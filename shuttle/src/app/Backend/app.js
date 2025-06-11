@@ -2,9 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = 3000;
+
 const sequelize = require('./util/database');
+
 const User = require('./models/user');
 const Ride = require('./models/rides');
+
+const authRoutes = require('./Routes/auth');
 
 User.hasMany(Ride, { foreignKey: 'driver_id' });
 Ride.belongsTo(User, { foreignKey: 'driver_id' });
@@ -26,6 +30,8 @@ sequelize.authenticate()
     .catch(err => {
         console.error('Database error:', err);
     });
+
+app.use(authRoutes);
 
 app.get('/', (req, res) => {
   res.send('Backend is running!');

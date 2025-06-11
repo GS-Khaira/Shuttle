@@ -107,3 +107,13 @@
 .singup-btn:hover::before {
     left: 100%;
 }
+
+.error{
+    color: red;
+}
+
+.error-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
