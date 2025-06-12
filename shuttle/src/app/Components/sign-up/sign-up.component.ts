@@ -22,7 +22,11 @@ export class SignUpComponent {
   ) {}
 
   onSignup() {
-    this._authService.signup(this.email, this.password).subscribe({
+    if((this.email === '') || (this.password === '')){
+      this.error = "Both email and Password required";
+    }else if((this.confirmPassword === this.password)){
+      this.error = '';
+      this._authService.signup(this.email, this.password).subscribe({
       next: (_) => {
         this._router.navigate(['/signIn']);
       },
@@ -30,5 +34,6 @@ export class SignUpComponent {
         this.error = err.error.message;
       }
     });
+    }
   }
 }
