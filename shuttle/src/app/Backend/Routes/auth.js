@@ -6,4 +6,6 @@ router.post('/signup', authController.signup);
 
 router.post('/signIn', authController.signIn);
 
+router.get('/checkSession', authController.checkSession);
+
 module.exports = router;

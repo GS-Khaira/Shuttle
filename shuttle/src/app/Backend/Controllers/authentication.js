@@ -16,6 +16,8 @@ exports.signIn = async (req,res) =>{
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
+    req.session.userId = existingUser.id;
+
     // Auth successful — proceed with token/session logic
     res.status(200).json({ message: 'Login successful', userId: existingUser.id });
   } catch (error) {
@@ -50,3 +52,12 @@ exports.signup = async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+
+exports.checkSession = (req,res) =>{
+    if (req.session.userId) {
+    res.json({ loggedIn: true, userId: req.session.userId });
+  } else {
+    res.json({ loggedIn: false });
+  }
+}
