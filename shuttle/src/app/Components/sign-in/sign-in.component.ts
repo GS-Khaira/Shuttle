@@ -31,10 +31,4 @@ export class SignInComponent {
       }
     });
   }
-
-  checkSeesion(){
-    this._authService.checkSession().subscribe(res => {
-      console.log(res); // Should show if user is logged in
-    });
-  }
 }
