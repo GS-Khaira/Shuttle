@@ -14,6 +14,10 @@ export class AuthService {
   }
 
   signIn(email: string, password: string) {
-    return this.http.post(`${this.baseUrl}/signIn`, { email, password });
+    return this.http.post(`${this.baseUrl}/signIn`, { email, password }, { withCredentials: true });
+  }
+
+  checkSession() {
+  return this.http.get(`${this.baseUrl}/checkSession`, { withCredentials: true });
   }
 }
