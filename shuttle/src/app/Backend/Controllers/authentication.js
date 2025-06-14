@@ -19,10 +19,10 @@ exports.signIn = async (req,res) =>{
     req.session.userId = existingUser.id;
 
     // Auth successful — proceed with token/session logic
-    res.status(200).json({ message: 'Login successful', userId: existingUser.id });
+    res.status(200).json({ loggedIn: true, userId: existingUser.id });
   } catch (error) {
     console.error('SignIn error:', error);
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ loggedIn: false, message: 'Internal server error' });
   }
 
 }
@@ -53,6 +53,16 @@ exports.signup = async (req, res) => {
   }
 };
 
+exports.logout = (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.error('Logout error:', err);
+      return res.status(500).json({ message: 'Logout failed' });
+    }
+    res.clearCookie('session_cookie_name'); // Same key as in express-session
+    res.status(200).json({ message: 'Logged out successfully' });
+  });
+};
 
 exports.checkSession = (req,res) =>{
     if (req.session.userId) {
