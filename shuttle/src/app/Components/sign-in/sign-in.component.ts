@@ -23,7 +23,6 @@ export class SignInComponent {
     this._authService.signIn(this.email, this.password).subscribe({
       next: (response) => {
         this.error = '';
-        console.log(response);
         this._router.navigate(['/home']);
       },
       error: (err) => {
