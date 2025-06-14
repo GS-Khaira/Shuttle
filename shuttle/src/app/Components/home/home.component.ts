@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from '../../Services/auth.service';
 
 export enum ShuttleActions {
   FIND = 'Find a Ride',
@@ -19,7 +20,9 @@ export class HomeComponent {
   shuttleOptions = Object.values(ShuttleActions);
   selectedShuttleOption: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+      private _authService: AuthService
+  ) {}
 
   onSelectedShuttleFunctionality(functionlity: string){
     this.selectedShuttleOption = functionlity;
@@ -27,7 +30,11 @@ export class HomeComponent {
 
   onContinue(){
     if(this.selectedShuttleOption == ShuttleActions.OFFER){
-      this.router.navigate(['/post-ride']);
+      if(this._authService['sessionStatus'].value){
+        this.router.navigate(['/post-ride']);
+      }else{
+        this.router.navigate(['/signIn']);
+      }
     }else if(this.selectedShuttleOption == ShuttleActions.FIND || this.selectedShuttleOption == ShuttleActions.SEND_LUGGAGE){
       this.router.navigate(['/find-shuttle']);
     }
