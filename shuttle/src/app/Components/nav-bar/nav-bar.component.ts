@@ -22,4 +22,8 @@ export class NavBarComponent implements OnInit{
     // Initial check when component loads
     this._authService.checkSession().subscribe();
   }
+
+  logOut(){
+    this._authService.logout().subscribe();
+  }
 }

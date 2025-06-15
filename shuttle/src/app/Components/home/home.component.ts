@@ -30,11 +30,7 @@ export class HomeComponent {
 
   onContinue(){
     if(this.selectedShuttleOption == ShuttleActions.OFFER){
-      if(this._authService['sessionStatus'].value){
-        this.router.navigate(['/post-ride']);
-      }else{
-        this.router.navigate(['/signIn']);
-      }
+      this.router.navigate(['/post-ride']);
     }else if(this.selectedShuttleOption == ShuttleActions.FIND || this.selectedShuttleOption == ShuttleActions.SEND_LUGGAGE){
       this.router.navigate(['/find-shuttle']);
     }
