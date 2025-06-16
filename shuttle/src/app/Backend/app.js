@@ -1,3 +1,5 @@
+require('dotenv').config({ path: './util/.env' });
+
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -6,11 +8,11 @@ const port = 3000;
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 const sessionStore = new MySQLStore({
-  host: 'localhost',
+  host: process.env.DB_HOST,
   port: 3306,
-  user: 'root',
-  password: 'GSKHAIRA@1005g',
-  database: 'shuttle'
+  user:  process.env.DB_USER,
+  password:  process.env.DB_PASS,
+  database:  process.env.DB_NAME
 });
 
 const sequelize = require('./util/database');
