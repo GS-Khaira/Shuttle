@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@angular/cli": "^19.2.12"
+    "@angular/cli": "^19.2.12",
+    "dotenv": "^16.5.0"
   }
 }

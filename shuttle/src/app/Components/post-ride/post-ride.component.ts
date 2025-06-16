@@ -16,7 +16,7 @@ export class PostRideComponent{
         time: '',
         luggage: false,
         redirection: false,
-        seats: 0,
+        seats: 1,
         price: 0,
         comments: ''
   };
