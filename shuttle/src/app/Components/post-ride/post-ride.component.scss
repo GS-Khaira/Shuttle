@@ -63,3 +63,7 @@ div{
         background-color: rgb(23, 160, 206);
     }
   }
+
+  input.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
