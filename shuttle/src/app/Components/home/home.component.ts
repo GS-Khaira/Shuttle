@@ -20,8 +20,8 @@ export class HomeComponent {
   shuttleOptions = Object.values(ShuttleActions);
   selectedShuttleOption: string = '';
 
-  constructor(private router: Router,
-      private _authService: AuthService
+  constructor(
+    private router: Router
   ) {}
 
   onSelectedShuttleFunctionality(functionlity: string){

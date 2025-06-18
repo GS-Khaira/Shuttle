@@ -41,6 +41,6 @@ exports.postRide = async (req, res) => {
     });
   } catch (error) {
     console.error('Error creating ride:', error);
-    return res.status(500).json({ error: 'Database error', details: error.message });
+    return res.status(500).json({ success: false, error: 'Database error', message: error.message });
   }
 }

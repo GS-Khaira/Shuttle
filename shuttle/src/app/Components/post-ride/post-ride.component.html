@@ -69,5 +69,10 @@
     </div>
 
     <button type="submit" class="post-btn" [disabled]="rideForm.invalid">Post Ride</button>
+    @if(error !== ''){
+      <div class="error">
+        {{error}}
+      </div>
+    }
   </form>
 </div>

@@ -2,6 +2,8 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, ViewChild} from '@angula
 import { FormsModule } from '@angular/forms';
 import { RideService } from '../../Services/ride.service';
 import { environment } from '../../../environment/environment';
+import { Router } from '@angular/router';
+import { RideData } from '../../Models/Post-Ride-Response';
 
 
 @Component({
@@ -13,7 +15,7 @@ import { environment } from '../../../environment/environment';
 })
 export class PostRideComponent{
   apiKey = environment.googleMapsApiKey;  
-  ride = {
+  ride: RideData = {
         from: '',
         to: '',
         date: '',
@@ -25,31 +27,40 @@ export class PostRideComponent{
         comments: ''
   };
 
+  error = '';
+
   @ViewChild('placePicker') placePickerRef!: ElementRef;
   @ViewChild('placeDropper') placeDropperRef!: ElementRef;
 
-  constructor(private rideService: RideService) {}
+  constructor(
+    private rideService: RideService,
+    private router: Router
+  ) {}
 
   ngAfterViewInit(): void {
-  const picker = this.placePickerRef.nativeElement as any;
-  const dropper = this.placeDropperRef.nativeElement as any;
+    const picker = this.placePickerRef.nativeElement as any;
+    const dropper = this.placeDropperRef.nativeElement as any;
 
-  picker.addEventListener('gmpx-placechange', (event: any) => {
-    this.ride.from = (event.target as any).value.formattedAddress;
-  });
-  dropper.addEventListener('gmpx-placechange', (event: any) => {
-    this.ride.to = (event.target as any).value.formattedAddress;
-  });
-}
+    picker.addEventListener('gmpx-placechange', (event: any) => {
+      this.ride.from = (event.target as any).value.formattedAddress;
+    });
+    dropper.addEventListener('gmpx-placechange', (event: any) => {
+      this.ride.to = (event.target as any).value.formattedAddress;
+    });
+  }
 
   onSubmit() {
-    console.log(this.ride);
+    this.error = '';
     this.rideService.postRide(this.ride).subscribe({
       next: res => {
-        console.log('Ride posted:', res);
+        if(res.success){
+          this.router.navigate(['/home']);
+        }else{
+          this.error = res.message;
+        }
       },
       error: err => {
-        console.error('Failed to post ride:', err);
+        this.error = err.error.message;
       }
     });
   }

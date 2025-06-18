@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { PostRideResponse, RideData } from '../Models/Post-Ride-Response';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class RideService {
 
   constructor(private http: HttpClient) {}
 
-  postRide(rideData: any) {
-    return this.http.post(`${this.baseUrl}/postRide`, rideData, { withCredentials: true });
+  postRide(rideData: RideData) {
+    return this.http.post<PostRideResponse>(`${this.baseUrl}/postRide`, rideData, { withCredentials: true });
   }
 }
