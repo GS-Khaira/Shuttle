@@ -1,8 +1,8 @@
 <div class="home-dashboard">
     <div class="search-card">
-      <input type="text" placeholder="From" />
-      <input type="text" placeholder="To" />
-      <input type="date" />
+      <input type="text" placeholder="From" [(ngModel)]="rideValues.from"/>
+      <input type="text" placeholder="To" [(ngModel)]="rideValues.to" />
+      <input type="date" [(ngModel)]="rideValues.date" />
     </div>
     <div class="actions">
       @for(option of shuttleOptions; track $index){

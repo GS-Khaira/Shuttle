@@ -25,53 +25,25 @@
       <span>Include luggage transport</span>
     </label>
   </div>
-
-  <div class="ride-card">
-    <div class="info">
-      <div class="avatar">A</div>
-      <div class="details">
-        <h2>Alex Johnson</h2>
-        <p>Charlottetown → Summerside</p>
-        <p>Departure: July 1st, 9:00 AM</p>
-        <p>Seats Available: 2</p>
+  @if(foundRides.length > 0){
+    @for (ride of foundRides; track $index) {
+      <div class="ride-card">
+        <div class="info">
+          <div class="avatar">A</div>
+          <div class="details">
+            <h2>Alex Johnson</h2>
+            <p>{{ride.from}} → {{ride.to}}</p>
+            <p>Departure: {{ride.date}}, {{ride.time}}</p>
+            <p>Seats Available: {{ride.seats}}</p>
+          </div>
+        </div>
+        <div class="actions">
+          <p>Cost: {{ride.price}}</p>
+          <button class="primary-button">Book Ride</button>
+        </div>
       </div>
-    </div>
-    <div class="actions">
-      <p>Cost: $15</p>
-      <button class="primary-button">Book Ride</button>
-    </div>
-  </div>
-
-  <div class="ride-card">
-    <div class="info">
-      <div class="avatar">M</div>
-      <div class="details">
-        <h2>Maria Lopez</h2>
-        <p>Charlottetown → Montague</p>
-        <p>Departure: July 2nd, 2:00 PM</p>
-        <p>Seats Available: 3</p>
-        <p>Luggage Allowed</p>
-      </div>
-    </div>
-    <div class="actions">
-      <p>Cost: $12</p>
-      <button class="primary-button">Book Ride</button>
-    </div>
-  </div>
-
-  <div class="ride-card">
-    <div class="info">
-      <div class="avatar">S</div>
-      <div class="details">
-        <h2>Sophie Chen</h2>
-        <p>Charlottetown → Alberton</p>
-        <p>Departure: July 3rd, 10:30 AM</p>
-        <p>Seats Available: 1</p>
-      </div>
-    </div>
-    <div class="actions">
-      <p>Cost: $20</p>
-      <button class="primary-button">Book Ride</button>
-    </div>
-  </div>
+    }
+  }@else {
+    <div>NO RIDE FOUND</div>
+  }
 </div>

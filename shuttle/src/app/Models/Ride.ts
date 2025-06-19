@@ -17,3 +17,10 @@ export interface PostRideResponse {
   error?: string;
   message: string;
 }
+
+export interface FindRideData {
+  from: string;
+  to: string;
+  date: Date;
+}
+

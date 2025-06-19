@@ -13,4 +13,6 @@ router.post('/logout', authController.logout);
 
 router.post('/postRide', rideController.postRide);
 
+router.get('/findRide', rideController.findRide);
+
 module.exports = router;

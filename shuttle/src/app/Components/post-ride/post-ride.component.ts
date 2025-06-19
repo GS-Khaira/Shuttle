@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { RideService } from '../../Services/ride.service';
 import { environment } from '../../../environment/environment';
 import { Router } from '@angular/router';
-import { RideData } from '../../Models/Post-Ride-Response';
+import { RideData } from '../../Models/Ride';
 
 
 @Component({

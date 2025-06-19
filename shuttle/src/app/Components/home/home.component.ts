@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { AuthService } from '../../Services/auth.service';
+import { FindRideData } from '../../Models/Ride';
+import { FormsModule } from '@angular/forms';
+import { RideService } from '../../Services/ride.service';
 
 export enum ShuttleActions {
   FIND = 'Find a Ride',
@@ -11,7 +13,7 @@ export enum ShuttleActions {
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [ CommonModule, FormsModule ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -19,9 +21,15 @@ export enum ShuttleActions {
 export class HomeComponent {
   shuttleOptions = Object.values(ShuttleActions);
   selectedShuttleOption: string = '';
+  rideValues: FindRideData = {
+    from: '',
+    to: '',
+    date: new Date(),
+  }
 
   constructor(
-    private router: Router
+    private _router: Router,
+    private _rideService: RideService
   ) {}
 
   onSelectedShuttleFunctionality(functionlity: string){
@@ -29,10 +37,11 @@ export class HomeComponent {
   }
 
   onContinue(){
+    this._rideService.setFormData(this.rideValues);
     if(this.selectedShuttleOption == ShuttleActions.OFFER){
-      this.router.navigate(['/post-ride']);
+      this._router.navigate(['/post-ride']);
     }else if(this.selectedShuttleOption == ShuttleActions.FIND || this.selectedShuttleOption == ShuttleActions.SEND_LUGGAGE){
-      this.router.navigate(['/find-shuttle']);
+      this._router.navigate(['/find-shuttle']);
     }
   }
 }
