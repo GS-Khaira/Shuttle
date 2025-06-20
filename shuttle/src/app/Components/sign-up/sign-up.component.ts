@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './sign-up.component.scss'
 })
 export class SignUpComponent {
+  name = '';
   email = '';
   password = '';
   confirmPassword = '';
@@ -26,7 +27,7 @@ export class SignUpComponent {
       this.error = "Both email and Password required";
     }else if((this.confirmPassword === this.password)){
       this.error = '';
-      this._authService.signup(this.email, this.password).subscribe({
+      this._authService.signup(this.name, this.email, this.password).subscribe({
       next: (_) => {
         this._router.navigate(['/signIn']);
       },

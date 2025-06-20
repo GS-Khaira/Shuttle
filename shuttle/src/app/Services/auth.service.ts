@@ -14,8 +14,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  signup(email: string, password: string) {
-    return this.http.post(`${this.baseUrl}/signup`, { email, password });
+  signup(name: string, email: string, password: string) {
+    return this.http.post(`${this.baseUrl}/signup`, { name, email, password });
   }
 
   signIn(email: string, password: string) {
