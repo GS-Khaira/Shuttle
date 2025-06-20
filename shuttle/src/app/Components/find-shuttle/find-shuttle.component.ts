@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RideService } from '../../Services/ride.service';
-import { FindRideData, RideData } from '../../Models/Ride';
+import { FindRideData, RideWithDriverData } from '../../Models/Ride';
 import { Subject, switchMap, takeUntil } from 'rxjs';
 
 @Component({
@@ -16,7 +16,7 @@ export class FindShuttleComponent implements OnInit {
     to: '',
     date: new Date(),
   }
-  foundRides: RideData[]= [];
+  foundRides: RideWithDriverData[]= [];
 
   private destroy$ = new Subject<void>();
 
@@ -33,7 +33,6 @@ export class FindShuttleComponent implements OnInit {
         switchMap(data => {
           if (data) {
             this.rideValues = data;
-            // Call findRide and return its Observable to continue the stream
             return this._rideService.findRide(this.rideValues);
           } else {
             // If no data, return empty observable to avoid errors

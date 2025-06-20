@@ -10,6 +10,13 @@ export interface RideData {
   comments: string;
 }
 
+export interface RideWithDriverData extends RideData {
+  user: userDriver; 
+}
+
+interface userDriver {
+  driver_name: string
+}
 
 export interface PostRideResponse {
   success: boolean;

@@ -29,9 +29,9 @@
     @for (ride of foundRides; track $index) {
       <div class="ride-card">
         <div class="info">
-          <div class="avatar">A</div>
+          <div class="avatar">{{ride.user.driver_name.charAt(0).toUpperCase() }}</div>
           <div class="details">
-            <h2>Alex Johnson</h2>
+            <h2>{{ride.user.driver_name}}</h2>
             <p>{{ride.from}} → {{ride.to}}</p>
             <p>Departure: {{ride.date}}, {{ride.time}}</p>
             <p>Seats Available: {{ride.seats}}</p>

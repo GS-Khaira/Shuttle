@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FindRideData, PostRideResponse, RideData } from '../Models/Ride';
+import { FindRideData, PostRideResponse, RideData, RideWithDriverData } from '../Models/Ride';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -22,7 +22,7 @@ export class RideService {
   }
 
   findRide(findRideData: FindRideData){
-    return this.http.get<RideData[]>(`${this.baseUrl}/findRide`, {
+    return this.http.get<RideWithDriverData[]>(`${this.baseUrl}/findRide`, {
     params: {
         from: findRideData.from,
         to: findRideData.to,

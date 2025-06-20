@@ -1,5 +1,6 @@
 const { Op } = require('sequelize');
 const Ride = require('../models/rides');
+const User = require('../models/user');
 
 exports.postRide = async (req, res) => {
   const {
@@ -47,7 +48,6 @@ exports.postRide = async (req, res) => {
 }
 
 exports.findRide = async (req, res) => {
-  console.log(req.query);
   const { from, to, date } = req.query;
 
   // Basic validation
@@ -77,12 +77,20 @@ exports.findRide = async (req, res) => {
         ['price_per_seat', 'price'],
         'comments',
       ],
-      raw: true, // Return plain JS objects, not Sequelize model instances
+      include: [
+        {
+          model: User,
+          attributes: [['name', 'driver_name']],
+        },
+      ],
+      raw: true, 
+      nest: true,
     });
+
     if (rides.length === 0) {
       return res.status(404).json({ message: 'No rides found for the given criteria.' });
     }
-
+    
     res.status(200).json(rides);
   } catch (error) {
     console.error('Error fetching rides:', error);
